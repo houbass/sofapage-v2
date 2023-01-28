@@ -39,6 +39,8 @@ function App() {
   const [submitDemoOpacity, setSubmitDemoOpacity] = useState(0);
   const [playlistSubmitOpacity, setPlaylistSubmitOpacity] = useState(0);
   const [thanksDemoOpacity, setThanksDemoOpacity] = useState(0);
+  //states pro pohyb playlistu
+  const [playlistMargin, setPlaylistMargin] = useState("600px");
 
 
 
@@ -151,19 +153,20 @@ function App() {
     setPlaylistMargin("600px");
   };
 
-  //funkce pro pohyb playlistu
-  const [playlistMargin, setPlaylistMargin] = useState("600px");
+
 
   //funkce pro playlistPage
   const playlistPage = () => {
     //page visibility  
     setPlaylistSubmit(0);
     setSubmit(-1);
+    setThanksDemo(-1);  
     //page opacity
     setPlaylistSubmitOpacity(1);
     setSubmitPageOpacity(0);
+    setThanksDemoOpacity(0);
     //playlist position
-    setPlaylistMargin("900px");
+    setPlaylistMargin("1000px");
   }
 
   //funkce pro demoPage
@@ -177,7 +180,7 @@ function App() {
     setSubmitPageOpacity(0);
     setThanksDemoOpacity(0);
     //playlist position
-    setPlaylistMargin("900px");
+    setPlaylistMargin("1000px");
   }
 
   //funkce pro thanks demo show
@@ -186,11 +189,13 @@ function App() {
     //page visibility  
     setThanksDemo(0);
     setSubmitDemo(-1);
+    setPlaylistSubmit(-1);
     //page opacity
     setThanksDemoOpacity(1);
     setSubmitDemoOpacity(0);
+    setPlaylistSubmitOpacity(0);
     //playlist position
-    setPlaylistMargin("400px");
+    setPlaylistMargin("450px");
   }
 
   return (
@@ -207,13 +212,13 @@ function App() {
       <MainContent visibility={homepage} opacity={homePageOpacity} transition={pagesTransition}/>
       <Releases visibility={releases} opacity={releasesPageOpacity} transition={pagesTransition}/>
       <Submitpage visibility={submit} opacity={submitPageOpacity} transition={pagesTransition} demoPage={demoPage} playlistPage={playlistPage}/>
-      <Playlistsubmit visibility={playlistSubmit} opacity={playlistSubmitOpacity} transition={pagesTransition}/>
+      <Playlistsubmit visibility={playlistSubmit} opacity={playlistSubmitOpacity} transition={pagesTransition} thanksDemoShow={thanksDemoShow}/>
 
       <Submit visibility={submitDemo} opacity={submitDemoOpacity} transition={pagesTransition} thanksDemoShow={thanksDemoShow}/>
 
       <Contact visibility={contact} opacity={contactPageOpacity} transition={pagesTransition}/>
 
-      <Thanksdemo visibility={thanksDemo} opacity={thanksDemoOpacity} transition={pagesTransition} demoPage={demoPage} homeFun={homeFun}/>
+      <Thanksdemo visibility={thanksDemo} opacity={thanksDemoOpacity} transition={pagesTransition} submitFun={submitFun} homeFun={homeFun}/>
 
       <div style={{ 
         marginTop: playlistMargin,

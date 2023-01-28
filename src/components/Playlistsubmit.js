@@ -3,33 +3,43 @@ import './Playlistsubmit.css';
 //library
 import { useForm } from "react-hook-form";
 
-
-
 //import emailJs
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import emailjs, { init, send } from '@emailjs/browser';
 
 const Playlistsubmit = (props) => {
+
   //funkce react hook form (kontrola polí a atd)
-  const {register, handleSubmit, watch, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
+  const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
+
 
   //funkce na posíláni na email
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_za1xlkr", "template_mdryrxo", form.current, "BpUJsAuZF7Y43-jj1")
+    emailjs.sendForm("service_za1xlkr", "template_icltax6", form.current, "BpUJsAuZF7Y43-jj1")
     .then((result) => {
         console.log(result.text);
+        formResetFun();
     }, (error) => {
         console.log(error.text);
     });
   };
 
-  //error funkce
+
+  //states
+  const [artistNameState, setArtistNameState] = useState(false);
+  const [emailState, setEmailState] = useState(false);
+  const [trackState, setTrackState] = useState(false);
+  const [messageState, setMessageState] = useState(true);
+  const [messageError, setMessageError] = useState("");
+  const [opacityFun, setOpacityFun] = useState(0);
+  const [pointerEventFun, setPointerEventFun] = useState("none");
+
+
   //artist name check
   let artistNameCheck = watch("artistName").length;
   let artistNameError = "";
-  let artistNameState = false;
 
   if(artistNameCheck === 0 ){
     artistNameError = "*artist name is mandatory"
@@ -40,29 +50,40 @@ const Playlistsubmit = (props) => {
   if(artistNameCheck >= 20){
     artistNameError = "*max length is 20"
   }
-  if(artistNameCheck >= 2 && artistNameCheck < 20){
-    artistNameError =  ""
-    artistNameState = true
-  };
+  useEffect(()=>{
+    if (artistNameCheck >= 2 && artistNameCheck < 20) {  
+      setArtistNameState(true);
+      console.log("artist true")
+    }else{
+      setArtistNameState(false);
+      console.log("artist false")
+    }
+  })
   
+
   //email check
   let emailCheck = watch("email");
   let emailSignCheck = emailCheck.includes("@");
   let emailError = "";
-  let emailState = false;
 
-  if(emailSignCheck === false){
+  if (emailSignCheck === false) {  
     emailError = "*email is mandatory"
-  }else{
-    emailError = ""
-    emailState = true;
-  };
+  }
+  useEffect (() => {
+    if(emailSignCheck === true){
+      emailError = ""
+      setEmailState(true);
+      console.log("email true")
+    }else{
+      setEmailState(false);
+    }
+  })
+
 
   //track check
   let trackCheck = watch("track");
   let trackCheckLength = trackCheck.length;
   let trackSignCheck = trackCheck.includes("spotify.com/track");
-  let trackState = false;
   let trackError = "";
 
   if(trackCheckLength === 0){
@@ -71,31 +92,51 @@ const Playlistsubmit = (props) => {
   if(trackCheckLength > 0 && trackSignCheck === false){
     trackError = "*this doesn't look like Spotify link mate"
   }
-  if(trackSignCheck === true){
-    trackError = "";
-    trackState = true;
-  }
-  else{
-  };
+  useEffect(() => {
+    if(trackSignCheck === true){
+      trackError = "";
+      setTrackState(true);
+      console.log("track true")
+    }else{
+      setTrackState(false);
+    }
+  })
+
 
   //message check
   let messageCheck = watch("text").length;
-  let messageError = "";
-  let messageState = true;
-  if(messageCheck >= 500){
-    messageError = "*it's too long mate";
-    messageState = false;
-  }else{
-  };
+  useEffect(() => {
+    if(messageCheck >= 500){
+      setMessageError("*it's too long mate");
+      setMessageState(false);
+      console.log("message false")
+    }else{
+      setMessageError("");
+      setMessageState(true);
+    }
+  })
 
-  //funkce na zobrazení tlačítka
-  let opacityFun = 0;
-  let pointerEventFun = "none";
-  if(artistNameState === true && emailState === true && messageState === true && trackState === true){
-    opacityFun = 1;
-    pointerEventFun = "all";
-  }else{
+  //funkce pro zobrazeni buttonu
+  useEffect(() => {
+    if(artistNameState === true && emailState === true && messageState === true && trackState === true){
+      setOpacityFun(1);
+      setPointerEventFun("all");
+    }else{
+      setOpacityFun(0);
+      setPointerEventFun("none"); 
+    }
+  })
+
+
+  //form reset function
+  const formResetFun = () => {
+    reset(formValues => ({
+      ...formValues,
+      track: "",
+      text: "",
+    }))
   }
+
 
   return (
     <div style={{
@@ -108,19 +149,19 @@ const Playlistsubmit = (props) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "left",
-        maxWidth: "900px",
-
-        padding: "10px 30px",
-        borderRadius: "30px"
+        maxWidth: "1000px",
+        padding: "30px 30px",
+        borderRadius: "30px",
+        boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
     }}>
       
       <div className="title">
-        <h1>Submit to our Spotify playlist</h1>
+        <h1>Submit your track to our Spotify playlist</h1>
       </div>
 
       <div className="description mt">
-        <p>This form is used to submit music to our Spotify playlists. 
-            Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
+        <p>This form is used to submit music to our Spotify playlist. 
+          Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
         </p>
         <br></br>
         <div className="list">
@@ -149,7 +190,7 @@ const Playlistsubmit = (props) => {
         </div>
 
         <div className="inputCol">
-          <input {...register("track")} placeholder="Paste Spotify link to your track" />
+          <input {...register("track")} placeholder="Paste Spotify link to your demo" />
           <p className="error">{trackError}</p>
         </div>        
 
@@ -159,7 +200,16 @@ const Playlistsubmit = (props) => {
         </div>
 
         <div className="inputRow mb mt">
-          <button style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun}} className="submitButt" type="submit">
+          <button 
+          onClick={() => {
+            props.thanksDemoShow();
+
+          }}
+
+
+          style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun}} 
+          className="submitButt" 
+          type="submit">
             submit
           </button>
         </div>

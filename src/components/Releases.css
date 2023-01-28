@@ -1,6 +1,7 @@
 .releasesList {
     display: flex;
     flex-direction: column;
+
 }
 
 .row {
@@ -8,5 +9,5 @@
     flex-direction: row;
     width: 800px;
     justify-content: space-between;
-    padding-top: 20px;
+    padding: 10px;
 }

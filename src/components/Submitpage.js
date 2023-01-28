@@ -4,14 +4,17 @@ import React from "react";
 const Submitpage = (props) => {
 
     let margin = {
-                    margin: "50px",
+                    margin: "30px",
+                    marginTop: "60px",
                     background: "white",
                     width: "400px",
                     height: "180px",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    borderRadius: "20px"
+                    borderRadius: "20px",
+                    padding: "10px",
+                    boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)"
                 }
 
     return (
@@ -30,7 +33,7 @@ const Submitpage = (props) => {
             borderRadius: "30px"
             }}>
 
-            <h1>Submit page</h1>
+            <h1>Submiting page</h1>
 
             <div style={{
                     display: "flex",

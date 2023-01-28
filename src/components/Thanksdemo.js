@@ -13,11 +13,17 @@ const Thanksdemo = (props) => {
             opacity: props.opacity,
             transition: props.transition,
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
+            padding: "60px 100px",
+            borderRadius: "30px",
+            boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)"
         }}>
-            <h1>Thank you for your demo submission</h1>
-            <button className="btnStyle2" onClick={props.demoPage}>Submit another one</button>
-            <button className="btnStyle2" onClick={props.homeFun}>homepage</button>
+            <h1>Thank you for your submission</h1>
+            <p>we let you know as soon as possible :))</p>
+            <div className="buttonsBox">
+                <button className="btnStyle2" onClick={props.submitFun}>submit another one</button>
+                <button className="btnStyle2" onClick={props.homeFun}>back to homepage</button>
+            </div>
         </div>
     )
 }

@@ -5,11 +5,19 @@ const Releases = (props) => {
 
     return (
         <div style={{
+            background: "white",
             position: "absolute",
+            width: "1000px",
             translate: "0px 180px",
             zIndex: props.visibility,
             opacity: props.opacity,
-            transition: props.transition
+            transition: props.transition,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: "30px 0px 50px",
+            borderRadius: "30px",
+            boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         }}>
             <h1>RELEASES PAGE</h1>
             <div className="releasesList">

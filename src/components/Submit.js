@@ -150,9 +150,10 @@ const Submit = (props) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "left",
-        maxWidth: "900px",
-        padding: "10px 30px",
-        borderRadius: "30px"
+        maxWidth: "1000px",
+        padding: "30px 30px",
+        borderRadius: "30px",
+        boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
     }}>
       
       <div className="title">

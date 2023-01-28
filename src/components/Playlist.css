@@ -1,0 +1,23 @@
+.playlist {
+  width: 1000px;
+}
+
+.playlistTitle {
+    padding-bottom: 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .playlistTitle {
+      animation: playlistTitle-anim infinite 2s ease-out;
+      animation-direction: alternate-reverse;
+    }
+}
+
+@keyframes playlistTitle-anim {
+    from {
+      scale: 100%;
+    }
+    to {
+      scale: 115%;
+    }
+}

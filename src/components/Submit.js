@@ -143,6 +143,7 @@ const Submit = (props) => {
     <div style={{
         position: "absolute",
         translate: "0px 180px",
+        background: "white",
         zIndex: props.visibility,
         opacity: props.opacity,
         transition: props.transition,        

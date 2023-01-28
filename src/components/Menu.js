@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useTransition } from "react";
 
 //imported stuffs
 import './Menu.css';
@@ -24,7 +24,8 @@ const Menu = (props) => {
                     <button 
                     onClick={props.releasesClick}
                     style={{
-                        fontSize: props.relfontsize
+                        scale: props.relfontsize,
+                        transition: "1s ease-out"
                     }}>
                         releases
                     </button>
@@ -36,7 +37,8 @@ const Menu = (props) => {
                     <button 
                     onClick={props.submitClick} 
                     style={{
-                        fontSize: props.subfontsize
+                        scale: props.subfontsize,
+                        transition: "1s ease-out"
                     }}>
                         submit music
                     </button>
@@ -48,7 +50,8 @@ const Menu = (props) => {
                     <button 
                     onClick={props.contactClick}
                     style={{
-                        fontSize: props.contfontsize
+                        scale: props.contfontsize,
+                        transition: "1s ease-out"
                     }}>
                         contact</button>
                 </div>

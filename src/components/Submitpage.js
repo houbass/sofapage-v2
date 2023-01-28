@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Submitpage.css";
 
 const Submitpage = (props) => {
 
@@ -33,8 +33,6 @@ const Submitpage = (props) => {
             borderRadius: "30px"
             }}>
 
-            <h1>Submiting page</h1>
-
             <div style={{
                     display: "flex",
                     flexDirection: "row",
@@ -44,13 +42,13 @@ const Submitpage = (props) => {
                 
                 <div style={margin}>
                     <h1>Playlist submission</h1>
-                    <p>submit your released music to our Spotify playlist</p>
+                    <p style={{fontSize: "12px"}}>submit your released music to our Spotify playlist</p>
                     <button onClick={props.playlistPage} className="btnStyle">Submit</button>
                 </div>
                 
                 <div style={margin}>
                     <h1>Demo submission</h1>
-                    <p>submit your unreleased demo to our label</p>
+                    <p style={{fontSize: "12px"}}>submit your unreleased demo to our label</p>
                     <button onClick={props.demoPage} className="btnStyle" >Submit</button>
                 </div>
 

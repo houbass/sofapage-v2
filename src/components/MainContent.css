@@ -18,3 +18,109 @@ p {
     width: 500px;
 }
 
+.note1 {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: -40px;
+    width: 30px;
+}
+
+.note2 {
+    position: absolute;
+    margin-top: 130px;
+    margin-left: 70px;
+    width: 25px;
+}
+
+.note3 {
+    position: absolute;
+    margin-top: 65px;
+    margin-left: 40px;
+    width: 17px;
+}
+
+.note4 {
+    position: absolute;
+    margin-top: 120px;
+    margin-left: -10px;
+    width: 30px;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .note1 {
+      animation: note1Anim infinite 2s ease-out;
+      animation-direction: alternate-reverse;
+    }
+}
+@keyframes note1Anim {
+    from {
+      opacity: 0;
+      scale: 100%;
+      rotate: -10deg;
+    }
+    to {
+      opacity: 1;
+      scale: 110%;
+      rotate: 10deg;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .note2 {
+      animation: note2Anim infinite 2s ease-out;
+      animation-direction: alternate-reverse;
+    }
+}
+@keyframes note2Anim {
+    from {
+      opacity: 1;
+      scale: 110%;
+      rotate: 0deg;
+    }
+    to {
+      opacity: 0;
+      scale: 90%;
+      rotate: -10deg;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .note3 {
+      animation: note3Anim infinite 4s ease-in;
+      animation-direction: alternate-reverse;
+    }
+}
+@keyframes note3Anim {
+    from {
+        opacity: 0;
+        scale: 90%;
+        rotate: 0deg;
+    }
+    to {
+        opacity: 1;
+        scale: 120%;
+        rotate: -20deg;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .note4 {
+      animation: note3Anim infinite 3s ease-in;
+      animation-direction: alternate-reverse;
+    }
+}
+@keyframes note3Anim {
+    from {
+      opacity: 1;
+      scale: 140%;
+      rotate: -20deg;
+    }
+    to {
+      opacity: 0;
+      scale: 100%;
+      rotate: 0deg;
+    }
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Thanksdemo.css";
 
 
 
@@ -9,6 +9,7 @@ const Thanksdemo = (props) => {
         <div style={{
             position: "absolute",
             translate: "0px 180px",
+            background: "white",
             zIndex: props.visibility,
             opacity: props.opacity,
             transition: props.transition,

@@ -11,7 +11,7 @@
     padding: 10px;
     margin-top: 5px;
     height: 30px;
-    background: white;
+    background: rgb(241, 239, 235);
     color: black;
     border-radius: 15px;
     border: none;
@@ -23,7 +23,7 @@
   }
   
   textarea {
-    background: white;
+    background: rgb(241, 239, 235);;
     border-radius: 15px;
     padding: 10px;
     resize: none;
@@ -31,9 +31,7 @@
     border: none;
   }
   
-  textarea:focus{
-    background-color: rgba(255, 255, 255, 0.801);
-  }
+
   
   ::placeholder{
     color: black;
@@ -42,6 +40,7 @@
   
   .form1 {
     width: 400px;
+
   }
   
   .inputRow {
@@ -93,14 +92,13 @@
 
 
   .submitButt {
-    background-color: white;
+    background-color: rgb(241, 239, 235);
     padding: 5px 15px;
     border-radius: 20px;
+    cursor: pointer;
   }
 
-  .submitButt:hover{
-    background-color: rgba(255, 255, 255, 0.801);
-  }
+
 
   .list {
     padding-left: 40px;

@@ -1,9 +1,6 @@
 
 import React,{useState} from "react";
 import './App.css';
-import "./components/Submitpage.css";
-import "./components/Thanksdemo.css";
-import "./components/Releases.css";
 
 //imported stuffs
 import Menu from './components/Menu';
@@ -27,9 +24,10 @@ function App() {
   const [playlistSubmit, setPlaylistSubmit] = useState(-1);
   const [thanksDemo, setThanksDemo] = useState(-1);
   //menu font size
-  const [relfontsize, setRelfontsize] = useState(20); 
-  const [subfontsize, setSubfontsize] = useState(20);
-  const [contfontsize, setContfontsize] = useState(20);
+  const [relfontsize, setRelfontsize] = useState("100%"); 
+  const [subfontsize, setSubfontsize] = useState("100%");
+  const [contfontsize, setContfontsize] = useState("100%");
+  const menuSizeValue = "130%"; 
   //pages transition opacity states
   const pagesTransition = "2s ease";
   const [homePageOpacity, setHomePageOpacity] = useState(1);
@@ -64,9 +62,9 @@ function App() {
     setPlaylistSubmitOpacity(0);
     setThanksDemoOpacity(0)
     //menu font size
-    setRelfontsize(20);
-    setSubfontsize(20);
-    setContfontsize(20);
+    setRelfontsize("100%");
+    setSubfontsize("100%");
+    setContfontsize("100%");
     //playlist position
     setPlaylistMargin("600px");
   };
@@ -91,11 +89,11 @@ function App() {
     setPlaylistSubmitOpacity(0); 
     setThanksDemoOpacity(0)
     //menu font size
-    setRelfontsize(23);
-    setSubfontsize(20);
-    setContfontsize(20);
+    setRelfontsize(menuSizeValue);
+    setSubfontsize("100%");
+    setContfontsize("100%");
     //playlist position
-    setPlaylistMargin("800px");
+    setPlaylistMargin("1100px");
   
   };
 
@@ -119,11 +117,11 @@ function App() {
     setPlaylistSubmitOpacity(0); 
     setThanksDemoOpacity(0)
     //menu font size
-    setRelfontsize(20);
-    setSubfontsize(23);
-    setContfontsize(20);
+    setRelfontsize("100%");
+    setSubfontsize(menuSizeValue);
+    setContfontsize("100%");
     //playlist position
-    setPlaylistMargin("500px");    
+    setPlaylistMargin("450px");    
   };
 
   //funkce pro CONTACT
@@ -146,9 +144,9 @@ function App() {
     setPlaylistSubmitOpacity(0); 
     setThanksDemoOpacity(0)
     //menu font size
-    setRelfontsize(20);
-    setSubfontsize(20);
-    setContfontsize(23);
+    setRelfontsize("100%");
+    setSubfontsize("100%");
+    setContfontsize(menuSizeValue);
     //playlist position
     setPlaylistMargin("600px");
   };

@@ -1,0 +1,12 @@
+.releasesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    justify-content: space-between;
+    padding-top: 20px;
+}

@@ -3,6 +3,7 @@ import React,{useState} from "react";
 import './App.css';
 import "./components/Submitpage.css";
 import "./components/Thanksdemo.css";
+import "./components/Releases.css";
 
 //imported stuffs
 import Menu from './components/Menu';
@@ -92,7 +93,7 @@ function App() {
     setSubfontsize(20);
     setContfontsize(20);
     //playlist position
-    setPlaylistMargin("600px");
+    setPlaylistMargin("800px");
   
   };
 
